@@ -1,3 +1,5 @@
+{{ config(schema='gold')}}
+
 SELECT
     date(date_format(r.created_at,'yyyy-MM-dd')) as review_date,
     r.product_id,

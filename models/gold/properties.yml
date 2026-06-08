@@ -4,3 +4,4 @@ models:
   - name: gold_sales__daily
     config:
       materialized: table
+      schema: gold
