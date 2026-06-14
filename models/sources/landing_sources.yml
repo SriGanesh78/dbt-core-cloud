@@ -19,10 +19,14 @@ sources:
                 severity: warn
         - name: quantity
           tests:
-          - assert_non_negative
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: ">= 0"
         - name: unit_price
           tests:
-          - assert_non_negative
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: ">= 0"
     - name: products
     - name: reviews
     - name: users
