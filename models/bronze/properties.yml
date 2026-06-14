@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: bronze_products
+    columns:
+      - name: category
+        tests:
+          - dbt_expectations.expect_column_values_to_be_in_set:
+              arguments:
+                value_set: ["Doohickey", "Widget", "Gizmo", "Gadget"]
+      - name: id
+        tests:
+          - relationships:
+              arguments:
+                field: product_id
+                to: ref('bronze_orders')

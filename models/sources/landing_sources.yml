@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+ - name: landing
+   database: dbt_project_catalog
+   schema: landing
+   tables:
+    - name: orders_incremental
+    - name: orders
+      columns:
+        - name: id
+          tests:
+          - unique
+          - not_null
+        - name: product_id
+          tests:
+          - unique:
+              config:
+                severity: warn
+        - name: quantity
+          tests:
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: ">= 0"
+        - name: unit_price
+          tests:
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: ">= 0"
+    - name: products
+    - name: reviews
+    - name: users
