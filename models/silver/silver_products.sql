@@ -7,4 +7,5 @@ ean,
 vendor,
 price
 FROM
-{{ ref('bronze_products') }}
+{{ ref('products_snapshot') }}
+WHERE dbt_valid_to = to_date('9999-12-31')

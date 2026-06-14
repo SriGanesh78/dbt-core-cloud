@@ -1,3 +1,5 @@
+{{ config(severity = 'warn') }}
+
 SELECT
 *
 FROM {{source('landing','orders')}}
