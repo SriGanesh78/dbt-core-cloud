@@ -17,6 +17,12 @@ sources:
           - unique:
               config:
                 severity: warn
+        - name: quantity
+          tests:
+          - assert_non_negative
+        - name: unit_price
+          tests:
+          - assert_non_negative
     - name: products
     - name: reviews
     - name: users
